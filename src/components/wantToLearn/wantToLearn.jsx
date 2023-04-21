@@ -1,9 +1,10 @@
 import React from "react";
+import { PrincipalWindow } from "../generalStyles";
 
 export const WantToLearn = () =>{
     return(
-        <div>
+        <PrincipalWindow>
             
-        </div>
+        </PrincipalWindow>
     )
 }

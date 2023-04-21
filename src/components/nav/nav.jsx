@@ -44,13 +44,13 @@ export const Nav = () =>{
         <DivNav>
             <StyledLi>
                 <ul>
-                    <StyledLink to={Home}>Inicio</StyledLink>
+                    <StyledLink to="/">Inicio</StyledLink>
                 </ul>
                 <ul>
-                    <StyledLink to={Projects}>Proyectos</StyledLink>
+                    <StyledLink to="Proyectos">Proyectos</StyledLink>
                 </ul>
                 <ul>
-                    <StyledLink to={Skills}>Tecnologias</StyledLink>
+                    <StyledLink to='Conocimientos'>Conocimientos</StyledLink>
                 </ul>
             </StyledLi>
             <Img src={logo} alt="Logo" />

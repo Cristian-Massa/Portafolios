@@ -1,9 +1,10 @@
 import React from "react";
+import { PrincipalWindow } from "../generalStyles";
 
 export const Skills = () =>{
     return(
-        <div>
+        <PrincipalWindow>
             
-        </div>
+        </PrincipalWindow>
     )
 }
