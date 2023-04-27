@@ -1,11 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate  } from 'react-router-dom';
 import { Nav } from './components/nav/nav';
 import { Home } from './components/home/home';
 import { Projects } from './components/projects/projects';
 import { Skills } from './components/skills/skills';
+import { useState } from 'react';
+import { Landing } from './components/landing/landing';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { landingClick, redirection } from './redux/actions/actions';
 
 
 const Principal = styled.div`
@@ -15,6 +20,27 @@ const Principal = styled.div`
 
  ` 
 function App() {
+
+  const [landing, setLanding] = useState(true)
+  const navigate = useNavigate();
+  const state = useSelector(state => state)
+  useEffect(() => {
+    if (landing === true) {
+      navigate('/landing');
+    }else{
+      navigate(state.redirection)
+    }
+  }, [landing]);
+  useEffect(() => {
+    setLanding(state.landing)
+  }, [state.landing]);
+  if(landing === true){
+    return(
+      <Routes>
+        <Route path='landing' element={<Landing />}/>
+      </Routes>
+    )
+  }
   return (
     <Principal>
       <Nav />
