@@ -2,22 +2,36 @@ import styled from "styled-components";
 import React from "react";
 
 export const PrincipalWindow = styled.div`
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 50px;
+    border-radius: 2rem;
+    display:grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto 30%;
+    transition: transform-x(-100%) 1s;
+`
+export const SlideWindow = styled.div`
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+    border-radius: 0 2rem 2rem 0;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: div 2;
 `
 
-export const Titles = styled.p`
-    color: black;
+export const Titles = styled.h1`
+    color: gray;
     font-family: 'Montserrat Alternates', sans-serif;
     font-size: 45px;
 `
-export const Text = styled.h1`
+export const Text = styled.p`
     color: gray;
     font-family: 'Montserrat Alternates', sans-serif;
     font-size: 24px;
 `
 
-export const SubTitle = styled.p`
+export const SubTitle = styled.h2`
     color: gray;
     font-family: 'Montserrat Alternates', sans-serif;
     font-size: 34px;

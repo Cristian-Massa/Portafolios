@@ -53,7 +53,6 @@ export const Nav = () =>{
                     <StyledLink to='Conocimientos'>Conocimientos</StyledLink>
                 </ul>
             </StyledLi>
-            <Img src={logo} alt="Logo" />
         </DivNav>
     )
 }

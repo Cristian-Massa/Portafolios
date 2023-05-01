@@ -1,6 +1,7 @@
 const initialState = {
     landing: true,
-    redirection: ''
+    redirection: '',
+    modalActive: false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 redirection: action.payload
+            }
+        case "MODAL":
+            return{
+                ...state,
+                modalActive: action.payload
             }
         default:
             return state

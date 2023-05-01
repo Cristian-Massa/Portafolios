@@ -58,8 +58,8 @@ export const Landing = () => {
             <AnimateVideo src={background} autoPlay muted controls="false" loop />
             <Overlay>
                 <Content>
-                    <Titles>Haz que tu presencia en línea sea inolvidable</Titles>
-                    <SubTitle>Asegura el éxito en línea de tu negocio con nuestro servicio de diseño web enfocado en la conversión</SubTitle>
+                    <Titles style={{fontWeight : "bolder"}}>CRISTIAN MASSA</Titles>
+                    <SubTitle>Programador full stack con fuertes tendencias hacia el desarrollo front end</SubTitle>
                     <Containerbtn>
                         <Botones value="/" onClick={handleClick}>Sobre Mi</Botones>
                         <Botones value="/" onClick={handleClick}>CV</Botones>
