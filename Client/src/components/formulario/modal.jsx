@@ -63,11 +63,11 @@ export const Modal = () => {
             ...message,
             [e.currentTarget.name]: value
         })
-        console.log(message)
+
     }
 
     function handleSubmit(e) {
-        console.log(message)
+
         axios.post('http://localhost:3001/message', message, {
             headers: {
                 'Content-Type': 'application/json'
