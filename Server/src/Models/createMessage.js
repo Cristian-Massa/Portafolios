@@ -21,7 +21,7 @@ module.exports = (dataBase) =>{
             isEmail: true,
         },
         type:{
-            type: DataTypes.ENUM("Presupuesto", "Oferta Laboral", "Consulta", "Recomendacion"),
+            type: DataTypes.ENUM("Presupuesto", "Contactar", "Consulta", "Recomendacion"),
             allowNull: false,
         }
     })

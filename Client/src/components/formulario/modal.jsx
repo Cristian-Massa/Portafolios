@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Botones, PrincipalWindow } from "../generalStyles";
 import { modal } from "../../redux/actions/actions";
 import { Text } from "../generalStyles";
+import axios from "axios"
 
 
 const Background = styled.div`
@@ -24,6 +25,7 @@ const TransparentBTN = styled.div`
 `
 
 const ModalWindow = styled.div`
+border: white 1px solid;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -35,9 +37,18 @@ const ModalWindow = styled.div`
     border-radius: 2rem;
     display:grid;
 `
+const TextArea = styled.textarea`
+    resize: none;
+`
 
 export const Modal = () => {
     const [window, setWindow] = useState(false)
+    const [message, setMessage] = useState({
+        name: '',
+        email: '',
+        type: '',
+        message: '',
+    })
     const state = useSelector(state => state)
     const dispatch = useDispatch()
 
@@ -46,7 +57,22 @@ export const Modal = () => {
         dispatch(modal(false))
     }
 
+    function handleText(e) {
+        let value = e.currentTarget.value
+        setMessage({
+            ...message,
+            [e.currentTarget.name]: value
+        })
+        console.log(message)
+    }
+
     function handleSubmit(e) {
+        console.log(message)
+        axios.post('http://localhost:3001/message', message, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
         e.preventDefault();
 
     }
@@ -57,20 +83,30 @@ export const Modal = () => {
                 <Botones onClick={handleClick}>x</Botones>
                 <form onSubmit={handleSubmit}>
                     <label for="nombre"><Text>Nombre:</Text></label>
-                    <input type="text" id="nombre" name="nombre" required />
+                    <input onChange={handleText} type="text" id="nombre" name="name" required />
 
-                        <label for="email"><Text>Email:</Text></label>
-                        <input type="email" id="email" name="email" required />
+                    <label for="email"><Text>Email:</Text></label>
+                    <input onChange={handleText} type="email" id="email" name="email" required />
 
-                            <label for="mensaje"><Text>Mensaje:</Text></label>
-                            <textarea id="mensaje" name="mensaje" required style={{width: "300px", height: "100px"}}></textarea>
+                    <label for="type"><Text>Asunto:</Text></label>
 
-                            <div style={{textAlign: "center"}}>
-                            <Botones>Enviar</Botones>
+                    <select name="type" onChange={handleText}>
+                        <option value="Contactar">Contactar</option>
+                        <option value="Consulta">Consulta</option>
+                        <option value="Recomendacion">Recomendacion</option>
+                        <option value="Presupuesto">Presupuesto</option>
+                    </select>
 
-                            </div>
-                        </form>
-                    </ModalWindow>
-                </Background>
-                )
+
+                    <label for="mensaje"><Text>Mensaje:</Text></label>
+                    <TextArea onChange={handleText} id="mensaje" name="message" required style={{ width: "300px", height: "100px" }}></TextArea>
+
+                    <div style={{ textAlign: "center" }}>
+                        <Botones>Enviar</Botones>
+
+                    </div>
+                </form>
+            </ModalWindow>
+        </Background>
+    )
 }
