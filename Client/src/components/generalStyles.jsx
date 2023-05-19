@@ -19,6 +19,16 @@ export const SlideWindow = styled.div`
     grid-row-start: 1;
     grid-row-end: div 2;
 `
+export const GeneralLink = styled.a`
+    text-decoration: none;
+    color: inherit; 
+    transition: color 0.2s, font-size 0.2s;
+    &:hover{
+        color: yellow;
+        font-size: 50px;
+    }
+`
+
 
 export const Titles = styled.h1`
     color: gray;
@@ -29,6 +39,7 @@ export const Text = styled.p`
     color: gray;
     font-family: 'Montserrat Alternates', sans-serif;
     font-size: 24px;
+    
 `
 
 export const SubTitle = styled.h2`

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components';
 import { Route, Routes, useNavigate  } from 'react-router-dom';
@@ -10,8 +9,8 @@ import { useState } from 'react';
 import { Landing } from './components/landing/landing';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { landingClick, redirection } from './redux/actions/actions';
-
+import axios from "axios";
+import { projects } from './redux/actions/actions';
 
 const Principal = styled.div`
   min-height: 100vh;
@@ -20,9 +19,9 @@ const Principal = styled.div`
 
  ` 
 function App() {
-
   const [landing, setLanding] = useState(true)
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const state = useSelector(state => state)
   useEffect(() => {
     if (landing === true) {
@@ -35,12 +34,20 @@ function App() {
     setLanding(state.landing)
   }, [state.landing]);
   if(landing === true){
+    if(state.projects.length === 0){
+      axios.get("http://localhost:3001/projects")
+        .then(response =>{
+            dispatch(projects(response.data))
+        })
+    }
+  
     return(
       <Routes>
         <Route path='landing' element={<Landing />}/>
       </Routes>
     )
   }
+
   return (
     <Principal>
       <Nav />

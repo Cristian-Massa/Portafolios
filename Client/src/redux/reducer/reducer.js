@@ -1,7 +1,8 @@
 const initialState = {
     landing: true,
     redirection: '',
-    modalActive: false
+    modalActive: false,
+    projects: []
 }
 
 export const reducer = (state = initialState, action) => {
@@ -21,6 +22,12 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 modalActive: action.payload
             }
+
+            case "PROJECTS":
+                return{
+                    ...state,
+                    projects: action.payload
+                }
         default:
             return state
     }
