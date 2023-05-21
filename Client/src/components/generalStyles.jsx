@@ -3,11 +3,16 @@ import React from "react";
 
 export const PrincipalWindow = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
-    margin: 50px;
+    margin: 10px;
+    width: 90vw;
+    position: absolute;
+    top: 150px;
+    left: 5%;
+    justify-self:center;
     border-radius: 2rem;
     display:grid;
     grid-template-rows: auto auto;
-    grid-template-columns: auto 30%;
+    grid-template-columns: auto auto;
     transition: transform-x(-100%) 1s;
 `
 export const SlideWindow = styled.div`

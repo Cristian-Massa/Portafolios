@@ -2,6 +2,7 @@ export const LANDINGCLICK = "LANDINGCLICK"
 export const REDIRECTION = "REDIRECTION"
 export const MODAL = "MODAL"
 export const PROJECTS = "PROJECTS"
+export const TOGGLEPROJECTS = "TOGGLEPROJECTS"
 export const landingClick = (boolean) =>({
         type: LANDINGCLICK,
         payload: boolean
@@ -20,4 +21,9 @@ export const modal = (boolean) =>({
 export const projects = (projects) =>({
     type: PROJECTS,
     payload: projects
+})
+
+export const toggleProjects = (check) =>({
+    type: TOGGLEPROJECTS,
+    payload: check
 })

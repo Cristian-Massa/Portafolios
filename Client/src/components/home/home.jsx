@@ -5,7 +5,8 @@ import { Titles, Text, SubTitle } from "../generalStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "../formulario/modal";
 import { modal } from "../../redux/actions/actions";
-
+import linkedin from '../../utils/linkedin-blue.svg';
+import github from '../../utils/icons8-github.svg'
 export const Home = () =>{
     const randomTitle = ['¡Bienvenido/a a mi portafolio! Agradecemos tu interés y esperamos que encuentres valiosa información aquí.', 'Saludos cordiales, y bienvenido/a al repositorio de Cristian Massa. Esperamos que encuentres útiles los recursos que hemos preparado para ti.', 'Me complace que hayas decidido echar un vistazo a mi Portafolios. Si necesitas ayuda, no dudes en contactarme.', '¡Espero que encuentres nuestra colección de recursos útil y relevante!']
     const random = Math.floor(Math.random() * 4)
@@ -27,6 +28,8 @@ export const Home = () =>{
 
                 <SlideWindow>
                 <img src="/" alt="Foto"></img>
+                <a href="https://www.linkedin.com/in/cristian-massa-5880931a3/" target="_blank"><img src={linkedin} alt="Linkedin" width="50px" /></a>
+                <a href="https://github.com/Cristian-Massa" target="_blank"><img src={github} alt="Github" /></a>
                 </SlideWindow>
                 <div>
                     <SubTitle> Informacion sobre mi</SubTitle>
