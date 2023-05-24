@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Projects } from "../projects/projects";
 import {Home} from '../home/home'
 import {Skills} from '../skills/skills'
-import { WantToLearn } from "../wantToLearn/wantToLearn";
 import logo from '../../utils/logo.png'
 
 

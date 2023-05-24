@@ -1,6 +1,7 @@
 const { Sequelize } = require("sequelize")
 require('dotenv').config()
 const createMessage = require('./Models/createMessage')
+const updateProjects = require('./Models/updateProjects')
 const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT} = process.env
 
 
@@ -10,11 +11,13 @@ const dataBase = new Sequelize(
 )
 
 createMessage(dataBase)
+updateProjects(dataBase)
 
-const { Form } = dataBase.models
+const { Form, Project } = dataBase.models
 
 
 module.exports = {
     Form,
+    Project,
     dataBase
 }

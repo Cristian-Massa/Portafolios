@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 const axios = require("axios")
 const projectGets = require("../Controllers/getProjectGH")
+const { Project } = require('../db');
+
 
 router.post('/message', async (req, res) => {
     try {
@@ -20,7 +22,16 @@ router.post('/message', async (req, res) => {
     }
 })
 
-router.get('/projects', projectGets)
+router.get('/projects', async (req, res) => {
+    try {
+        const projects = await projectGets()
+        res.status(200).json(projects)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+});
+
+
 
 
 module.exports = router

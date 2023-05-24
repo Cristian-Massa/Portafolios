@@ -38,6 +38,7 @@ function App() {
       axios.get("http://localhost:3001/projects")
         .then(response =>{
             dispatch(projects(response.data))
+            console.log(response.data)
         })
     }
   
