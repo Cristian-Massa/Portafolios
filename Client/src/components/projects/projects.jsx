@@ -9,8 +9,8 @@ import { toggleProjects } from "../../redux/actions/actions";
 import styled from "styled-components";
 
 const MidCard = styled.div`
-position: relative;
-left: 10%;
+  position: relative;
+  left: 10%;
 `
 
 
@@ -34,17 +34,14 @@ export const Projects = () => {
             element.description.includes("#Project")
           );
           setProjectsOrExercise(projects);
-          console.log(projectsOrExercise);
         } else if (check === "Exercise") {
           const exercises = state.projects.filter(element =>
             element.description.includes("#Exercise")
           );
           setProjectsOrExercise(exercises);
-          console.log(projectsOrExercise);
         } else {
           const showAll = state.projects.filter(element => element);
           setProjectsOrExercise(showAll);
-          console.log(projectsOrExercise);
         }
       
         dispatch(toggleProjects(check));

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import React from "react";
 
 export const PrincipalWindow = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
@@ -14,6 +13,33 @@ export const PrincipalWindow = styled.div`
     grid-template-rows: auto auto;
     grid-template-columns: auto auto;
     transition: transform-x(-100%) 1s;
+
+    @media (max-width: 767px) {
+        display:flex;
+        flex-wrap: wrap;
+        margin: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0rem;
+        grid-template-columns: auto;
+        
+      }
+      @media (min-width: 768px) {
+        background-color: rgba(0, 0, 0, 0.5);
+        margin: 10px;
+        width: 90%;
+        position: absolute;
+        top: 150px;
+        left: 5%;
+        justify-self:center;
+        border-radius: 2rem;
+        display:grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 50% 50%;
+        transition: transform-x(-100%) 1s;
+        
+      }
 `
 export const SlideWindow = styled.div`
     background-color: rgb(255, 255, 255);
@@ -23,6 +49,12 @@ export const SlideWindow = styled.div`
     grid-column-start: 2;
     grid-row-start: 1;
     grid-row-end: div 2;
+
+
+    @media (max-width: 767px) {
+        border-radius: 0;
+        height: 50%;
+      }
 `
 export const GeneralLink = styled.a`
     text-decoration: none;
@@ -30,7 +62,7 @@ export const GeneralLink = styled.a`
     transition: color 0.2s, font-size 0.2s;
     &:hover{
         color: yellow;
-        font-size: 50px;
+        font-size: 3vw;
     }
 `
 
@@ -38,19 +70,19 @@ export const GeneralLink = styled.a`
 export const Titles = styled.h1`
     color: gray;
     font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 45px;
+    font-size: 3vw;
 `
 export const Text = styled.p`
     color: gray;
     font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 24px;
+    font-size: 2vw;
     
 `
 
 export const SubTitle = styled.h2`
     color: gray;
     font-family: 'Montserrat Alternates', sans-serif;
-    font-size: 34px;
+    font-size: 2vw;
 `
 
 export const Botones = styled.button`

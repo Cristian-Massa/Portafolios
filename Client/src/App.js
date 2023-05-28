@@ -15,8 +15,9 @@ import { projects } from './redux/actions/actions';
 const Principal = styled.div`
   min-height: 100vh;
   display: grid;
+  width: 100%;
   grid-template-rows: 20% auto;
-
+  
  ` 
 function App() {
   const [landing, setLanding] = useState(true)
@@ -33,6 +34,7 @@ function App() {
   useEffect(() => {
     setLanding(state.landing)
   }, [state.landing]);
+
   if(landing === true){
     if(state.projects.length === 0){
       axios.get("http://localhost:3001/projects")

@@ -6,6 +6,7 @@ import { Botones, PrincipalWindow } from "../generalStyles";
 import { modal } from "../../redux/actions/actions";
 import { Text } from "../generalStyles";
 import axios from "axios"
+import { useEffect } from "react";
 
 
 const Background = styled.div`
@@ -25,17 +26,25 @@ const TransparentBTN = styled.div`
 `
 
 const ModalWindow = styled.div`
+overflow: hidden;
 border: white 1px solid;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 5%;
-    z-index: 3;
-    background-color: rgba(0, 0, 0, 0.5);
-    margin: 50px;
-    border-radius: 2rem;
-    display:grid;
+position: fixed;
+top: 45%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: 1%;
+z-index: 3;
+background-color: rgba(0, 0, 0, 0.5);
+margin: 50px;
+border-radius: 2rem;
+display: grid;
+
+@media screen and (max-width: 768px) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 20px;
+}
 `
 const TextArea = styled.textarea`
     resize: none;
@@ -49,6 +58,7 @@ export const Modal = () => {
         type: '',
         message: '',
     })
+    const [response, setResponse] = useState('')
     const state = useSelector(state => state)
     const dispatch = useDispatch()
 
@@ -72,6 +82,12 @@ export const Modal = () => {
             headers: {
                 'Content-Type': 'application/json'
             }
+        })
+        .then(response =>{
+            setResponse("Mensaje Enviado")
+        })
+        .catch((err) =>{
+            setResponse("Algo ha fallado intentelo mas tarde")
         })
         e.preventDefault();
 
@@ -99,7 +115,7 @@ export const Modal = () => {
 
 
                     <label for="mensaje"><Text>Mensaje:</Text></label>
-                    <TextArea onChange={handleText} id="mensaje" name="message" required style={{ width: "300px", height: "100px" }}></TextArea>
+                    <TextArea onChange={handleText} id="mensaje" name="message" required style={{ width: "40vw", height: "50px" }}></TextArea>
 
                     <div style={{ textAlign: "center" }}>
                         <Botones>Enviar</Botones>

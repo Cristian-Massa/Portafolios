@@ -4,7 +4,6 @@ import background from '../../utils/background.mp4'
 import { Botones, SubTitle, Titles, Containerbtn } from "../generalStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { landingClick, redirection } from "../../redux/actions/actions";
-import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 
 const AnimateVideo = styled.video`
     position: fixed;
@@ -32,7 +31,7 @@ const Content = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background:rgba(240, 240, 240, 0.7);
+    background:rgba(240, 240, 240, 0.8);
     height: 50%;
     border-radius: 1rem;
     width: 50%;
@@ -40,6 +39,15 @@ const Content = styled.div`
     display: grid;
     justify-content:center;
     text-align:center;
+    
+
+    @media (min-width: 1025px) {
+        height: 50%;
+      }
+      @media (max-width: 1024px) {
+        width: 100%;
+        // height: 80%;
+      }
 `
 
 

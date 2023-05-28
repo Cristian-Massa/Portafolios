@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Projects } from "../projects/projects";
-import {Home} from '../home/home'
-import {Skills} from '../skills/skills'
-import logo from '../../utils/logo.png'
 
 
 const StyledLink = styled(Link)`
@@ -12,44 +8,35 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     font-weight: bolder;
 `
+
 const DivNav = styled.nav`
-    
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100vw;
+    overflow: hidden;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
     height: 90px;
     flex-grow: 1;
 `
 const StyledLi = styled.li`
-display: flex;
-width: 100vw;
-justify-content: space-around;
-align-items: center
-text-align: center;
-
+    display:flex;
+    justify-content: space-around;
+    flex-direction: row;
 `
 
-const Img = styled.img`
-position: absolute;
-left: 50%;
-transform: translate(-50%, 0%);
-width: 150px;
-border-radius: 50%;
-max-width: 90%;
-padding: 1rem;
-`
 
-export const Nav = () =>{
-    return(
+
+export const Nav = () => {
+    return (
         <DivNav>
             <StyledLi>
                 <ul>
                     <StyledLink to="/">Inicio</StyledLink>
                 </ul>
                 <ul>
-                    <StyledLink to="Proyectos">Proyectos</StyledLink>
+                    <StyledLink to='Conocimientos'>Conocimientos</StyledLink>
                 </ul>
                 <ul>
-                    <StyledLink to='Conocimientos'>Conocimientos</StyledLink>
+                    <StyledLink to="Proyectos">Proyectos</StyledLink>
                 </ul>
             </StyledLi>
         </DivNav>
