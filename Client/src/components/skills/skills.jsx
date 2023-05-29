@@ -9,6 +9,7 @@ import react from '../../utils/logos/react.png'
 import redux from '../../utils/logos/redux.png'
 import styled from "styled-components";
 import { Botones } from "../generalStyles";
+import { useEffect } from "react";
 
 const Img = styled.img`
     width: 200px;
@@ -46,11 +47,11 @@ const InvisibleBTN = styled.button`
 `
 export const Skills = () => {
     const [toggleInfo, setToggleInfo] = useState('')
-
-    const handleClick = (e) => {
-        setToggleInfo(e.target.value)
-    }
-
+    const [info, setInfo] = useState({
+        language: '',
+        img: '',
+        description: ''
+    }) 
     const options = {
         html: {
             language: 'html',
@@ -89,7 +90,14 @@ export const Skills = () => {
         },
 
     }
-
+    const handleClick = (e) => {
+        const language = e.target.value.split(',')
+        setToggleInfo(e.target.value)
+        setInfo(options[language[0]])
+    }
+    useEffect(() =>{
+        console.log(info)
+    }, [info])
     return (
         <PrincipalWindow style={{ gridTemplateColumns: "auto" }}>
             <List>
@@ -107,6 +115,9 @@ export const Skills = () => {
                     {toggleInfo.includes('Lenguajes') ?
                         <ElementInfo>
                             <Botones onClick={handleClick} value="">x</Botones>
+                            <div>
+                                <img src={info.img} alt="" width='300px'/>
+                            </div>
                         </ElementInfo> : null}
                 </Elements>
                 <SubTitle>Otros</SubTitle>
