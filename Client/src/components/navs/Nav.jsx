@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components/macro";
-import {VscMenu} from 'react-icons/vsc'
+import {CgMenu} from 'react-icons/cg'
 
 const Header = styled.header`
-    ${tw`
-        sticky 
-        grid
-        md:grid-cols-2 
-        lg:grid-cols-2
-        justify-center 
-        text-center
-        bg-white
-        bg-opacity-40 
-    `}
-`
+  ${tw`
+    sticky
+    top-0
+    p-2
+    md:p-5
+    flex 
+    flex-col
+    md:flex-row
+    md:place-content-around
+    items-center
+    justify-center
+    gap-3 
+    text-center
+    bg-white
+    bg-opacity-40
+    h-auto
+    mb-10
+  `}
+`;
 const ToggleUi = styled.ul`
     ${tw` 
     p-1
@@ -29,9 +37,8 @@ const ToggleUi = styled.ul`
     lg:h-auto
     `
     }
-    height: ${(boolean) => (boolean.isOpen ? 'auto' : '0px')};
+    height: ${(props) => (props.isOpen ? '100px' : '0')};
     transition: height 0.3s ease-in-out;
-
 `
 
 export const Nav = (props) => {
@@ -42,14 +49,14 @@ export const Nav = (props) => {
     }
     return (
         <Header>
-                <img src="logo" alt="logo" />
-                <h1>Cristian Massa portafolios</h1>
+                <img src="https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4" alt="logo" width="100px" />
+                <h1>Portafolio de Cristian Massa</h1>
             <nav>
-                <button tw="visible sm:hidden" onClick={handleMenu} ><VscMenu /></button>
+                <button tw="visible sm:hidden" onClick={handleMenu} ><CgMenu /></button>
                 <ToggleUi isOpen={isMenuOpen}>
-                    <li>Inicio</li>
-                    <li>Proyectos</li>
-                    <li>Acerca de mi</li>
+                    <a href="#"><li>Inicio</li></a>
+                    <a href="#"><li>Proyectos</li></a>
+                    <a href="#"><li>Acerca de mi</li></a>
                 </ToggleUi>
             </nav>
         </Header>
