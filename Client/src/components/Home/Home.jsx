@@ -5,35 +5,44 @@ import react from "../../utils/icons/react.png"
 import node from "../../utils/icons/node.png"
 import postgre from "../../utils/icons/postgre.png"
 import html from "../../utils/icons/html.png"
+import reactNative from "../../utils/icons/react-native.png"
+import php from "../../utils/icons/php.svg"
 import js from "../../utils/icons/js.png"
 import css from "../../utils/icons/css.png"
-
-
-const Section = styled.section`
-    ${tw`
-        container
-        rounded-md	
-        bg-white
-        h-auto
-        p-5
-        text-center
-        justify-center
-        my-5
-    `}
-`
+import photo from "../../utils/photo.jpg"
+import { DefaultBTN } from "../GlobalStyles";
+import cv from "../../utils/cv/cv.pdf"
+// const Section = styled.section`
+//     ${tw`
+//         mx-5
+//         justify-self-center
+//         rounded-md	
+//         bg-white
+//         h-auto
+//         p-5
+//         text-center
+//         justify-center
+//         my-5
+//     `}
+// `
 
 const Div = styled.div`
     ${tw`
         flex
         flex-col
+        lg:grid
+        lg:grid-cols-4
+        lg:items-center
     `}
 `
 
 const Img = styled.img`
   ${tw`
-    w-16
-    min-w-0
-    m-3
+    w-1/3
+    mx-auto
+    md:w-1/12
+    m-2
+    object-contain
   `}
   transition: transform 0.3s;
 
@@ -45,43 +54,80 @@ const Img = styled.img`
 const ImgContainer = styled.div`
   ${tw`
     flex
-    flex-row
-    justify-center
-    m-10
+    flex-wrap
+    md:flex-row
+    md:justify-center
+    sm:my-5
+    md:m-10
   `}
 `;
+const Photodiv = styled.div`
+  ${tw`
+    flex
+    flex-col
+    items-center
+    justify-center
+    lg:justify-start
+  `}
+`;
+const Photo = styled.img`
+    height: 400px;
+    width: 250px;
+  border-radius: 2rem;
+  height: 100%
+`
+const SecondContainer = styled.article`
+  ${tw`
+  col-span-3
+  `}
+
+`
 
 export const Home = () => {
     return (
-        <Section>
-            <article>
-                <h2>Bienvenido a mi portafolio</h2>
-            </article>
+        <section>
             <Div>
                 <article>
-                    <img src="" alt="foto de perfil" />
-                    <p>Cristian Egard Massa Martinez</p>
+                    <Photodiv>
+                        <Photo src={photo} alt="foto de perfil" />
+                        <p>Cristian Egard Massa Martinez</p>
                     <p>Desarrollador FullStack</p>
-                    <p>Hola, soy Cristian, un apasionado estudiante de desarrollo web de Uruguay. Con 22 años, estoy dedicado a adquirir habilidades en el campo de la programación. Actualmente, estoy estudiando desarrollo web en el bootcamp SoyHenry, donde me estoy formando en JavaScript, React, CSS, Node.js, Express, SQL, PostgreSQL y Sequelize.
+                    </Photodiv>
 
-Además de mi formación formal, estoy explorando otras tecnologías por mi cuenta, y una de mis áreas de interés es React Native para el desarrollo de aplicaciones móviles. A medida que progrese en mi aprendizaje y me sienta más cómodo con el desarrollo web, mi objetivo es expandir mis conocimientos y habilidades para crear aplicaciones tanto para dispositivos móviles como de escritorio.
-
-Estoy emocionado por el desafío que representa el aprendizaje de nuevas tecnologías y estoy dispuesto a enfrentar cualquier proyecto que me permita crecer y adquirir experiencia. Siempre estoy abierto a nuevas oportunidades y a colaborar en proyectos emocionantes que me permitan aplicar mis habilidades y conocimientos.
-
-Estoy entusiasmado por seguir avanzando en mi carrera como desarrollador web y estar preparado para el emocionante mundo del desarrollo móvil en un futuro cercano</p>
                 </article>
-                <article>
-                    <p>Tecnologias</p>
-                    <ImgContainer>
-                        <Img src={html} alt="html" />
-                        <Img src={css} alt="css" />
-                        <Img src={js} alt="js" />
-                        <Img src={react} alt="react" />
-                        <Img src={node} alt="node" />
-                        <Img src={postgre} alt="postgres" />
-                    </ImgContainer>
-                </article>
+                <SecondContainer>
+                    <div>
+
+                        <div>
+                            <h2>Bienvenido a mi portafolio</h2>
+                            <p>
+                               Soy un estudiante de desarrollo web full stack de 22 años que reside en Uruguay. Actualmente, me encuentra participando en el programa de formación de SoyHenry, un bootcamp especializado en tecnología, donde estoy adquiriendo conocimientos y habilidades en diferentes áreas de desarrollo web.
+                            </p>
+                            <DefaultBTN>Conoceme mas</DefaultBTN>
+                            <a href={cv} download>
+                                <DefaultBTN >Mi CV</DefaultBTN>
+                            </a>
+                        </div>
+                        <div>
+                            <h2>Tecnologias</h2>
+                            <h3>actualmente puedo emplear</h3>
+                            <ImgContainer>
+                                <Img src={html} alt="html" />
+                                <Img src={css} alt="css" />
+                                <Img src={js} alt="js" />
+                                <Img src={react} alt="react" />
+                                <Img src={node} alt="node" />
+                                <Img src={postgre} alt="postgres" />
+                            </ImgContainer>
+                            <h3>Me gustaria aprender</h3>
+                            <ImgContainer>
+                                <Img src={reactNative} />
+                                <Img src={php} />
+                            </ImgContainer>
+                        </div>
+                    </div>
+                </SecondContainer>
             </Div>
-        </Section>
+        </section>
     )
 }
