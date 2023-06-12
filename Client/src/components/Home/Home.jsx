@@ -9,22 +9,11 @@ import reactNative from "../../utils/icons/react-native.png"
 import php from "../../utils/icons/php.svg"
 import js from "../../utils/icons/js.png"
 import css from "../../utils/icons/css.png"
+import github from "../../utils/icons/github.png"
+import linkedin from "../../utils/icons/linkedin.png"
 import photo from "../../utils/photo.jpg"
 import { DefaultBTN } from "../GlobalStyles";
 import cv from "../../utils/cv/cv.pdf"
-// const Section = styled.section`
-//     ${tw`
-//         mx-5
-//         justify-self-center
-//         rounded-md	
-//         bg-white
-//         h-auto
-//         p-5
-//         text-center
-//         justify-center
-//         my-5
-//     `}
-// `
 
 const Div = styled.div`
     ${tw`
@@ -50,7 +39,21 @@ const Img = styled.img`
     transform: scale(1.2);
   }
 `;
+const SocialImg = styled.img`
+  ${tw`
+    w-1/5
+    mx-auto
+    md:w-10
+    md:mx-5
+    m-2
+    object-contain
+  `}
+  transition: transform 0.3s;
 
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
 const ImgContainer = styled.div`
   ${tw`
     flex
@@ -82,16 +85,30 @@ const SecondContainer = styled.article`
   `}
 
 `
+const SocialContainer = styled.div`
+  ${tw`
+  flex
+  `}
 
+`
 export const Home = () => {
     return (
         <section>
             <Div>
                 <article>
                     <Photodiv>
-                        <Photo src={photo} alt="foto de perfil" />
-                        <p>Cristian Egard Massa Martinez</p>
-                    <p>Desarrollador FullStack</p>
+                      <Photo src={photo} alt="foto de perfil" />
+                      <p>Cristian Egard Massa Martinez</p>
+                      <p>Desarrollador FullStack</p>
+                      <p><p style={{fontWeight: "bold"}}>Email:</p> kkrss606@gmail.com</p>
+                      <SocialContainer>
+                        <a href="https://www.linkedin.com/in/cristian-massa-5880931a3/" target="_blank">
+                          <SocialImg src={linkedin}/>
+                        </a>
+                        <a href="https://github.com/Cristian-Massa" target="_blank">
+                          <SocialImg src={github}/>
+                        </a>
+                      </SocialContainer>
                     </Photodiv>
 
                 </article>
