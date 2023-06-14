@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+// Estilos
 import styled from "styled-components";
 import tw from "twin.macro";
 import react from "../../utils/icons/react.png"
@@ -14,6 +15,69 @@ import linkedin from "../../utils/icons/linkedin.png"
 import photo from "../../utils/photo.jpg"
 import { DefaultBTN } from "../GlobalStyles";
 import cv from "../../utils/cv/cv.pdf"
+//componentes
+import { Form } from "../Form/Form";
+
+export const Home = () => {
+  const [display, setDisplay] = useState(false)
+
+  return (
+    <section>
+      <Div>
+        <article>
+          <Photodiv>
+            <Photo src={photo} alt="foto de perfil" />
+            <p>Cristian Egard Massa Martinez</p>
+            <p>Desarrollador FullStack</p>
+            <p><p style={{ fontWeight: "bold" }}>Email:</p> kkrss606@gmail.com</p>
+            <SocialContainer>
+              <a href="https://www.linkedin.com/in/cristian-massa-5880931a3/" target="_blank">
+                <SocialImg src={linkedin} />
+              </a>
+              <a href="https://github.com/Cristian-Massa" target="_blank">
+                <SocialImg src={github} />
+              </a>
+            </SocialContainer>
+          </Photodiv>
+
+        </article>
+        <SecondContainer>
+          <div>
+
+            <div>
+              <h2>Bienvenido a mi portafolio</h2>
+              <p>
+                Soy un estudiante de desarrollo web full stack de 22 años que reside en Uruguay. Actualmente, me encuentra participando en el programa de formación de SoyHenry, un bootcamp especializado en tecnología, donde estoy adquiriendo conocimientos y habilidades en diferentes áreas de desarrollo web.
+              </p>
+              <DefaultBTN>Conoceme mas</DefaultBTN>
+              <a href={cv} download>
+                <DefaultBTN >Mi CV</DefaultBTN>
+              </a>
+              <DefaultBTN onClick={() => { setDisplay(!display) }}>Contactame</DefaultBTN>
+            </div>
+            <div>
+              <h2>Tecnologias</h2>
+              <h3>actualmente puedo emplear</h3>
+              <ImgContainer>
+                <Img src={html} alt="html" />
+                <Img src={css} alt="css" />
+                <Img src={js} alt="js" />
+                <Img src={react} alt="react" />
+                <Img src={node} alt="node" />
+                <Img src={postgre} alt="postgres" />
+              </ImgContainer>
+              <h3>Me gustaria aprender</h3>
+              <ImgContainer>
+                <Img src={reactNative} />
+                <Img src={php} />
+              </ImgContainer>
+            </div>
+          </div>
+        </SecondContainer>
+      </Div>
+    </section>
+  )
+}
 
 const Div = styled.div`
     ${tw`
@@ -91,60 +155,3 @@ const SocialContainer = styled.div`
   `}
 
 `
-export const Home = () => {
-    return (
-        <section>
-            <Div>
-                <article>
-                    <Photodiv>
-                      <Photo src={photo} alt="foto de perfil" />
-                      <p>Cristian Egard Massa Martinez</p>
-                      <p>Desarrollador FullStack</p>
-                      <p><p style={{fontWeight: "bold"}}>Email:</p> kkrss606@gmail.com</p>
-                      <SocialContainer>
-                        <a href="https://www.linkedin.com/in/cristian-massa-5880931a3/" target="_blank">
-                          <SocialImg src={linkedin}/>
-                        </a>
-                        <a href="https://github.com/Cristian-Massa" target="_blank">
-                          <SocialImg src={github}/>
-                        </a>
-                      </SocialContainer>
-                    </Photodiv>
-
-                </article>
-                <SecondContainer>
-                    <div>
-
-                        <div>
-                            <h2>Bienvenido a mi portafolio</h2>
-                            <p>
-                               Soy un estudiante de desarrollo web full stack de 22 años que reside en Uruguay. Actualmente, me encuentra participando en el programa de formación de SoyHenry, un bootcamp especializado en tecnología, donde estoy adquiriendo conocimientos y habilidades en diferentes áreas de desarrollo web.
-                            </p>
-                            <DefaultBTN>Conoceme mas</DefaultBTN>
-                            <a href={cv} download>
-                                <DefaultBTN >Mi CV</DefaultBTN>
-                            </a>
-                        </div>
-                        <div>
-                            <h2>Tecnologias</h2>
-                            <h3>actualmente puedo emplear</h3>
-                            <ImgContainer>
-                                <Img src={html} alt="html" />
-                                <Img src={css} alt="css" />
-                                <Img src={js} alt="js" />
-                                <Img src={react} alt="react" />
-                                <Img src={node} alt="node" />
-                                <Img src={postgre} alt="postgres" />
-                            </ImgContainer>
-                            <h3>Me gustaria aprender</h3>
-                            <ImgContainer>
-                                <Img src={reactNative} />
-                                <Img src={php} />
-                            </ImgContainer>
-                        </div>
-                    </div>
-                </SecondContainer>
-            </Div>
-        </section>
-    )
-}
