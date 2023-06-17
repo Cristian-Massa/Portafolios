@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 import { projects } from "./redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Projects } from './components/Projects/projects';
-import { ToTop } from './components/ToTop/ToTop';
 
 function App() {
   const store = useSelector(store => store.projects)
@@ -36,7 +35,6 @@ function App() {
       <Nav />
       <Home />
       <Projects />
-      <ToTop />
     </main>
   );
 }
