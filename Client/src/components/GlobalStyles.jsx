@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import tw from "twin.macro";
 
+
 export const GlobalStyle = createGlobalStyle`
     main{
         height:100%;
@@ -9,13 +10,13 @@ export const GlobalStyle = createGlobalStyle`
         ${tw`
         mx-5
         justify-self-center
-        rounded-md	
-        bg-white
+        min-h-screen
+        bg-gray-800 bg-opacity-90
         h-auto
         p-5
         text-center
         justify-center
-        my-5
+        
         `}
     }
     h1{
@@ -30,6 +31,7 @@ export const GlobalStyle = createGlobalStyle`
         ${tw`
             text-3xl
             font-bold
+            text-white
             `}
             font-family: 'Raleway', sans-serif;
     }
@@ -37,12 +39,14 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Raleway', sans-serif;
         text-2xl
         font-bold
+        text-white
     }
     p{
         font-family: 'Poiret One', cursive;
         ${tw`
             text-xl 
             font-normal
+            text-white
         `}
     }
     ul{
@@ -73,7 +77,31 @@ export const GlobalStyle = createGlobalStyle`
         color: #ff9800;
         transform: scale(1.1);
       }
-
+      header{
+        ${tw`
+        p-2
+        md:p-5
+        flex 
+        flex-col
+        md:flex-row
+        md:place-content-between
+        items-center
+        justify-center
+        gap-3 
+        text-center
+        bg-gray-800
+        h-auto
+        mb-10
+      `}
+      }
+      select{
+        ${tw`
+        bg-black
+        text-white
+        rounded-lg
+        p-2
+        `}
+      }
 `
 export const DefaultBTN = styled.button`
     ${tw`
@@ -84,5 +112,8 @@ export const DefaultBTN = styled.button`
         h-10
         m-5
         font-semibold
+
+        hover:bg-orange-500
+        transition duration-200 ease-in-out
     `}
 `

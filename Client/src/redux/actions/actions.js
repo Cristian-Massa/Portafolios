@@ -1,7 +1,6 @@
 export const DISPLAY = "DISPLAY"
 export const PROJECTS = "PROJECTS"
 
-
 export function display (boolean) {
     return{
         type: DISPLAY,
@@ -15,3 +14,4 @@ export function projects(projects) {
         payload: projects
     }
 }
+

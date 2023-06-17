@@ -22,7 +22,7 @@ export const Home = () => {
   const [display, setDisplay] = useState(false)
 
   return (
-    <section>
+    <section id="home" style={{paddingTop: "200px"}}>
       <Div>
         <article>
           <Photodiv>
@@ -57,7 +57,7 @@ export const Home = () => {
             </div>
             <div>
               <h2>Tecnologias</h2>
-              <h3>actualmente puedo emplear</h3>
+              <p>actualmente puedo emplear</p>
               <ImgContainer>
                 <Img src={html} alt="html" />
                 <Img src={css} alt="css" />
@@ -66,7 +66,7 @@ export const Home = () => {
                 <Img src={node} alt="node" />
                 <Img src={postgre} alt="postgres" />
               </ImgContainer>
-              <h3>Me gustaria aprender</h3>
+              <p>Me gustaria aprender</p>
               <ImgContainer>
                 <Img src={reactNative} />
                 <Img src={php} />

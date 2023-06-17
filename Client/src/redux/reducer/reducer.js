@@ -1,18 +1,18 @@
 const initialState = {
     display: false,
-    projects: []
+    projects: [],
 }
 
 
-export const reducer = (state = initialState, action) =>{
-    switch(action.type){
+export const reducer = (state = initialState, action) => {
+    switch (action.type) {
         case 'DISPLAY':
-            return{
+            return {
                 ...initialState,
                 display: action.payload
             }
         case 'PROJECTS':
-            return{
+            return {
                 ...initialState,
                 projects: action.payload
             }

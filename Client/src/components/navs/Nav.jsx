@@ -1,28 +1,10 @@
 import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components/macro";
-import {CgMenu} from 'react-icons/cg'
+import { CgMenu } from 'react-icons/cg'
 import logo from '../../utils/logo.png'
-const Header = styled.header`
-  ${tw`
-    p-2
-    md:p-5
-    flex 
-    flex-col
-    md:flex-row
-    md:place-content-between
-    items-center
-    justify-center
-    gap-3 
-    text-center
-    bg-white
-    bg-opacity-40
-    h-auto
-    mb-10
-  `}
-  background: rgb(0,0,0);
-  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(44,44,44,0.8100490196078431) 5%);
-`;
+import { useDispatch } from "react-redux";
+
 const ToggleUi = styled.ul`
     ${tw`
     p-1
@@ -44,21 +26,22 @@ const ToggleUi = styled.ul`
 
 export const Nav = (props) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-    const handleMenu = () =>{
+    const handleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
     return (
-        <Header>
+        <header>
+            <div tw="md:flex">
                 <img src={logo} alt="logo" width="100px" />
+            </div>
             <nav>
                 <button tw="visible sm:hidden " onClick={handleMenu} ><CgMenu /></button>
                 <ToggleUi isOpen={isMenuOpen}>
-                    <a href="#"><li>Inicio</li></a>
-                    <a href="#"><li>Proyectos</li></a>
+                    <a href="#home"><li>Inicio</li></a>
+                    <a href="#Project"><li>Proyectos</li></a>
                     <a href="#"><li>Acerca de mi</li></a>
                 </ToggleUi>
             </nav>
-        </Header>
+        </header>
     )
 }

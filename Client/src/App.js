@@ -10,29 +10,33 @@ import { useEffect } from 'react';
 
 import { projects } from "./redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { Projects } from './components/Projects/projects';
+import { ToTop } from './components/ToTop/ToTop';
 
 function App() {
   const store = useSelector(store => store.projects)
   const dispatch = useDispatch()
   // consiguiendo los proyectos
-  useEffect(()=>{
+  useEffect(() => {
     axios.get('http://localhost:3001/projects')
-      .then(response =>{
+      .then(response => {
         dispatch(projects(response.data))
       })
-      .catch((err) =>{
+      .catch((err) => {
         console.log(err.message)
       })
   }, [])
-  useEffect(() =>{
+  useEffect(() => {
     console.log(store)
   }, [store])
   return (
     <main>
-      <video src={background} autoPlay muted loop controls/>
-      <GlobalStyle/>
-      <Nav/>
+      <GlobalStyle />
+      <video src={background} autoPlay muted loop controls />
+      <Nav />
       <Home />
+      <Projects />
+      <ToTop />
     </main>
   );
 }
