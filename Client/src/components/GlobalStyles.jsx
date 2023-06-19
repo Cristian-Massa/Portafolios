@@ -8,7 +8,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     section{
         ${tw`
-        mx-5
         justify-self-center
         min-h-screen
         bg-gray-800 bg-opacity-90
@@ -71,6 +70,7 @@ export const GlobalStyle = createGlobalStyle`
             text-xl
         `}
         transition: transform 0.5s;
+        cursor: pointer;
       }
       
       li:hover {
@@ -79,6 +79,10 @@ export const GlobalStyle = createGlobalStyle`
       }
       header{
         ${tw`
+        fixed
+        top-0
+        w-screen
+        z-1
         p-2
         md:p-5
         flex 
@@ -93,6 +97,7 @@ export const GlobalStyle = createGlobalStyle`
         h-auto
         mb-10
       `}
+      transition: transform 0.5s ease-in-out;
       }
       select{
         ${tw`
@@ -100,6 +105,18 @@ export const GlobalStyle = createGlobalStyle`
         text-white
         rounded-lg
         p-2
+        `}
+      }
+      textarea{
+        ${tw`
+            md:w-80
+            md:h-40
+            rounded-md
+        `}
+      }
+      input{
+        ${tw`
+            rounded-md
         `}
       }
 `

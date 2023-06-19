@@ -9,11 +9,14 @@ import { useEffect } from 'react';
 //redux
 
 import { projects } from "./redux/actions/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Projects } from './components/Projects/projects';
+import { Form } from './components/Form/Form';
+
+//functions
+import { ScrollNav } from './functions/ScrollNav/scrollNav';
 
 function App() {
-  const store = useSelector(store => store.projects)
   const dispatch = useDispatch()
   // consiguiendo los proyectos
   useEffect(() => {
@@ -25,16 +28,15 @@ function App() {
         console.log(err.message)
       })
   }, [])
-  useEffect(() => {
-    console.log(store)
-  }, [store])
   return (
     <main>
       <GlobalStyle />
       <video src={background} autoPlay muted loop controls />
       <Nav />
-      <Home />
-      <Projects />
+      <Home id="Home" />
+      <Projects id="Projects"/>
+      <Form />
+      <ScrollNav />
     </main>
   );
 }

@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components/macro";
 import { CgMenu } from 'react-icons/cg'
 import logo from '../../utils/logo.png'
-import { useDispatch } from "react-redux";
+import {Link, animateScroll as scroll} from "react-scroll"
 
 const ToggleUi = styled.ul`
     ${tw`
@@ -30,16 +30,15 @@ export const Nav = (props) => {
         setIsMenuOpen(!isMenuOpen)
     }
     return (
-        <header>
+        <header id="header">
             <div tw="md:flex">
                 <img src={logo} alt="logo" width="100px" />
             </div>
             <nav>
                 <button tw="visible sm:hidden " onClick={handleMenu} ><CgMenu /></button>
                 <ToggleUi isOpen={isMenuOpen}>
-                    <a href="#home"><li>Inicio</li></a>
-                    <a href="#Project"><li>Proyectos</li></a>
-                    <a href="#"><li>Acerca de mi</li></a>
+                <Link to="home" smooth={true} duration={500}><li>Inicio</li></Link>
+                <Link to="Project" smooth={true} duration={500}><li>Proyectos</li></Link>
                 </ToggleUi>
             </nav>
         </header>

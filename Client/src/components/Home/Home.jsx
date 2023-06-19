@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link, animateScroll as scroll} from "react-scroll"
 // Estilos
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -7,7 +8,7 @@ import node from "../../utils/icons/node.png"
 import postgre from "../../utils/icons/postgre.png"
 import html from "../../utils/icons/html.png"
 import reactNative from "../../utils/icons/react-native.png"
-import php from "../../utils/icons/php.svg"
+import typescript from "../../utils/icons/ty.png"
 import js from "../../utils/icons/js.png"
 import css from "../../utils/icons/css.png"
 import github from "../../utils/icons/github.png"
@@ -49,11 +50,10 @@ export const Home = () => {
               <p>
                 Soy un estudiante de desarrollo web full stack de 22 años que reside en Uruguay. Actualmente, me encuentra participando en el programa de formación de SoyHenry, un bootcamp especializado en tecnología, donde estoy adquiriendo conocimientos y habilidades en diferentes áreas de desarrollo web.
               </p>
-              <DefaultBTN>Conoceme mas</DefaultBTN>
               <a href={cv} download>
                 <DefaultBTN >Mi CV</DefaultBTN>
               </a>
-              <DefaultBTN onClick={() => { setDisplay(!display) }}>Contactame</DefaultBTN>
+              <Link to="Form" smooth={true} duration={500}><DefaultBTN>  Contactame</DefaultBTN></Link>
             </div>
             <div>
               <h2>Tecnologias</h2>
@@ -69,7 +69,7 @@ export const Home = () => {
               <p>Me gustaria aprender</p>
               <ImgContainer>
                 <Img src={reactNative} />
-                <Img src={php} />
+                <Img src={typescript} />
               </ImgContainer>
             </div>
           </div>
@@ -91,7 +91,7 @@ const Div = styled.div`
 
 const Img = styled.img`
   ${tw`
-    w-1/3
+    w-1/5
     mx-auto
     md:w-1/12
     m-2
